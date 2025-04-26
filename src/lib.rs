@@ -1,11 +1,11 @@
-use num::complex::{Complex64, Complex, ComplexFloat};
+use num::complex::{Complex, Complex64, ComplexFloat};
 
 pub fn mandelbrot(c: Complex64) -> bool {
     let mut z: Complex64 = Complex::ZERO.into();
     let mut i: u8 = 0;
     while z.abs() < 2.0 && i < 100 {
-        z = z*z + c;
-        i = i+1;
+        z = z * z + c;
+        i = i + 1;
     }
     i == 100
 }
