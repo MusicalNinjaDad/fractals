@@ -1,0 +1,3 @@
+# Fractals
+
+Some fun with fractals. I'm hoping to end up with something providing 3d representations of 4d fractals based on quaternions and maybe some bindings into python ...
