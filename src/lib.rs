@@ -1,13 +1,13 @@
-use num::complex::{Complex, Complex64, ComplexFloat};
+mod lim;
+
+use num::complex::{Complex64, ComplexFloat};
+use lim::unbounded;
 
 pub fn mandelbrot(c: Complex64) -> bool {
-    let mut z: Complex64 = Complex::ZERO;
-    let mut i: u8 = 0;
-    while z.abs() < 2.0 && i < 100 {
-        z = z * z + c;
-        i += 1;
+    match unbounded(100, |z: Complex64| {z.powu(2) + c}, |z| {z.abs() >= 2.0}) {
+        Some(_) => false,
+        None => true
     }
-    i == 100
 }
 
 #[cfg(test)]
